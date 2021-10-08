@@ -1,0 +1,78 @@
+.card-movies {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .card-movies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: rgb(41, 39, 39);
+    padding: 10px;
+    margin: 10px;
+    &_carrousel {
+      flex-shrink: 0.2;
+      padding: 5px;
+      border-right: 1px grey solid;
+    }
+    &_info {
+      flex-shrink: 1;
+      margin-left: 20px;
+      color: white;
+      &-description {
+        border-bottom: 1px grey solid;
+        padding-bottom: 15px;
+      }
+      &-progress {
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        & h4 {
+          flex-shrink: 0.5;
+          width: 140px;
+        }
+        & .circular {
+          margin-left: 30px;
+        }
+      }
+      &-rating {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        & h4 {
+          width: 140px;
+        }
+        & .rating {
+          margin-left: 30px;
+        }
+      }
+      &-vote {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        & h4 {
+          width: 140px;
+        }
+        & h4:last-of-type {
+          margin-left: 30px;
+        }
+        & strong {
+          margin-left: 35px;
+        }
+      }
+    }
+  }
+}
+
+.black {
+  background-color: rgb(41, 40, 40) !important;
+}
+
+.color_button {
+  color: white !important;
+}
+
+.progress {
+  border-radius: 50px;
+}
