@@ -8,7 +8,7 @@ import "./cardMovies.scss";
 export const CardMovies = () => {
   useEffect(() => {
     const resp = async () => {
-      const a = await fetch('');
+      
     };
   });
 
