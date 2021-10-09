@@ -1,5 +1,13 @@
 import Rating from "@mui/material/Rating";
 
-export const RatingSIze = () => {
-  return <Rating name="size-small" defaultValue={8} size="small" max={10} className="rating"/>;
+export const RatingSIze = (props: { average: number }) => {
+  return (
+    <Rating
+      name="size-small"
+      defaultValue={props.average}
+      size="small"
+      max={10}
+      className="rating"
+    />
+  );
 };

@@ -1,9 +1,9 @@
 import "./progress.scss";
-export const Progress = () => {
+export const Progress = (props:{popularity:number}) => {
   return (
     <div className="circular">
       <div className="inner"></div>
-      <div className="number">100%</div>
+      <div className="number">{props.popularity}%</div>
       <div className="circle">
         <div className="bar left">
           <div className="progress"></div>

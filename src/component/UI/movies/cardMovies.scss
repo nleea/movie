@@ -22,6 +22,8 @@
       &-description {
         border-bottom: 1px grey solid;
         padding-bottom: 15px;
+        height: 140px;
+        width: 100%;
       }
       &-progress {
         height: 100px;
@@ -52,13 +54,13 @@
         flex-direction: row;
         align-items: center;
         & h4 {
-          width: 140px;
+          width: 120px;
         }
         & h4:last-of-type {
           margin-left: 30px;
         }
         & strong {
-          margin-left: 35px;
+          margin-left: 25px;
         }
       }
     }

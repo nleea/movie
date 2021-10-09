@@ -52,14 +52,17 @@
     transform: rotate(180deg);
   }
 }
+
 .circle .right {
   transform: rotate(180deg);
   z-index: 3;
 }
+
 .circle .right .progress {
   animation: right 4s linear both;
   animation-delay: 4s;
 }
+
 @keyframes right {
   100% {
     transform: rotate(180deg);
