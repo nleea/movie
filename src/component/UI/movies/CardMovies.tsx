@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import fetch from "node-fetch";
+import axios from "axios";
 import Carrousel from "../movies/CarrouselMovie";
 import { Progress } from "../progress/Progress";
 import { RatingSIze } from "../rating/Rating";
@@ -8,8 +8,11 @@ import "./cardMovies.scss";
 export const CardMovies = () => {
   useEffect(() => {
     const resp = async () => {
-      
+      const movies = await axios.get(
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=1"
+      );
     };
+    resp();
   });
 
   return (
