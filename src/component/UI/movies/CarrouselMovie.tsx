@@ -9,47 +9,38 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
+import axios from "axios";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const images = [
-  {
-    label: "San Francisco – Oakland Bay Bridge, United States",
-    imgPath:
-      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
-  },
-  {
-    label: "Bird",
-    imgPath:
-      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
-  },
-  {
-    label: "Bali, Indonesia",
-    imgPath:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80",
-  },
-  {
-    label: "Goč, Serbia",
-    imgPath:
-      "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
-  },
-];
-
 function SwipeableTextMobileStepper(props: any) {
   const theme = useTheme();
+  const images = [...props.movies];
   const [activeStep, setActiveStep] = useState(0);
+  const [image, setImage] = useState("");
   const maxSteps = images.length;
 
-  const handleNext = () => {
+  const handleNext = (i: any) => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    imagePath(i);
   };
 
-  const handleBack = () => {
+  const handleBack = (i: any) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    imagePath(i);
   };
 
   const handleStepChange = (step: number) => {
+    imagePath(step);
     setActiveStep(step);
+  };
+
+  const imagePath = async (index: any) => {
+    const data = await axios.get(
+      `https://image.tmdb.org/t/p/w500/${images[index].poster_path}`
+    );
+    setImage(data.config.url!);
+    return "";
   };
 
   return (
@@ -67,7 +58,7 @@ function SwipeableTextMobileStepper(props: any) {
         }}
       >
         <Typography style={{ color: "white" }}>
-          {images[activeStep].label}
+          {images[activeStep].title}
         </Typography>
       </Paper>
       <AutoPlaySwipeableViews
@@ -77,7 +68,7 @@ function SwipeableTextMobileStepper(props: any) {
         enableMouseEvents
       >
         {images.map((step, index) => (
-          <div key={step.label}>
+          <div key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
                 component="img"
@@ -88,8 +79,9 @@ function SwipeableTextMobileStepper(props: any) {
                   overflow: "hidden",
                   width: "100%",
                 }}
-                src={step.imgPath}
-                alt={step.label}
+                src={image}
+                alt={step.title}
+                key={index}
               />
             ) : null}
           </div>
@@ -104,7 +96,7 @@ function SwipeableTextMobileStepper(props: any) {
           <Button
             size="small"
             className="color_button"
-            onClick={handleNext}
+            onClick={() => handleNext(activeStep + 1)}
             disabled={activeStep === maxSteps - 1}
           >
             Next
@@ -119,7 +111,7 @@ function SwipeableTextMobileStepper(props: any) {
           <Button
             size="small"
             className="color_button"
-            onClick={handleBack}
+            onClick={() => handleBack(activeStep - 1)}
             disabled={activeStep === 0}
           >
             {theme.direction === "rtl" ? (
