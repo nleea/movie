@@ -1,4 +1,5 @@
 import { CardMovies } from "../UI/movies/CardMovies";
+import "./movies.scss";
 
 export const Movies = () => {
   return (
@@ -6,7 +7,6 @@ export const Movies = () => {
       <div className="movies_container_slider">
         <CardMovies />
       </div>
-      <div className="movies_container_list"></div>
     </div>
   );
 };
