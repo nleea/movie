@@ -1,0 +1,43 @@
+.container-card_image {
+  height: 160px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.container-card_image-i {
+  width: 160px;
+  height: 160px;
+  margin: 20px 30px;
+  border-radius: 8px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tiptext {
+  visibility: hidden;
+  width: 300px;
+  height: auto;
+  background: rgba(241, 233, 161, 0.8);
+  color: #000;
+  text-align: center;
+  border-radius: 3px;
+  padding: 6px 0;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip .tiptext::after {
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.tooltip:hover .tiptext {
+  visibility: visible;
+}
