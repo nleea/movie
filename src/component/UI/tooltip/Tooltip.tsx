@@ -1,4 +1,4 @@
-import "./tooltip.scss";
+import "./tooltip.css";
 
 export const ToolTip = (props: { data: any; image: string }) => {
   return (

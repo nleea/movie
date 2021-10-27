@@ -1,0 +1,76 @@
+.card-movies {
+  display: none;
+}
+@media (min-width: 600px) {
+  .card-movies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: #292727;
+    padding: 10px;
+    margin: 10px;
+ }
+  .card-movies_carrousel {
+    flex-shrink: 0.2;
+    padding: 5px;
+    border-right: 1px grey solid;
+ }
+  .card-movies_info {
+    flex-shrink: 1;
+    margin-left: 20px;
+    color: white;
+ }
+  .card-movies_info-description {
+    border-bottom: 1px grey solid;
+    padding-bottom: 15px;
+    height: 140px;
+    width: 100%;
+ }
+  .card-movies_info-progress {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+  .card-movies_info-progress h4 {
+    flex-shrink: 0.5;
+    width: 140px;
+ }
+  .card-movies_info-progress .circular {
+    margin-left: 30px;
+ }
+  .card-movies_info-rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+  .card-movies_info-rating h4 {
+    width: 140px;
+ }
+  .card-movies_info-rating .rating {
+    margin-left: 30px;
+ }
+  .card-movies_info-vote {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+  .card-movies_info-vote h4 {
+    width: 120px;
+ }
+  .card-movies_info-vote h4:last-of-type {
+    margin-left: 30px;
+ }
+  .card-movies_info-vote strong {
+    margin-left: 25px;
+ }
+}
+.black {
+  background-color: #292828 !important;
+}
+.color_button {
+  color: white !important;
+}
+.progress {
+  border-radius: 50px;
+}

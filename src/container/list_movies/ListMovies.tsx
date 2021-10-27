@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import { Card } from "../../component/UI/card/Card";
-import "./listmovies.scss";
+import "./listmovies.css";
 
 export const ListMovies = () => {
   const [state, setState] = useState([]);

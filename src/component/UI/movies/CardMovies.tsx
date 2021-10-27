@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Carrousel from "../movies/CarrouselMovie";
-import "./cardMovies.scss";
+import "./cardMovies.css";
 
 export const CardMovies = () => {
   const [data, setData] = useState([]);

@@ -1,4 +1,4 @@
-import "./progress.scss";
+import "./progress.css";
 export const Progress = (props:{popularity:number}) => {
   return (
     <div className="circular">

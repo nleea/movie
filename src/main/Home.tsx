@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { DashBoard } from "../component/dashboard/DashBoard";
 import { Movies } from "../component/movies/Movies";
 import { ListMovies } from "../container/list_movies/ListMovies";
-import "./home.scss";
+import "./home.css";
 
 export const Home = () => {
   const history = useHistory();

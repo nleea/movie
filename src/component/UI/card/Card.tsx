@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import { ToolTip } from "../tooltip/Tooltip";
-import "./card.scss";
+import "./card.css";
 
 export const Card = (props: any) => {
   const [image, setImage] = useState("");
