@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import { ToolTip } from "../tooltip/Tooltip";
 import "./card.scss";
 
 export const Card = (props: any) => {
@@ -16,7 +17,8 @@ export const Card = (props: any) => {
   }, [props.url]);
 
   return (
-    <div className="">
+    <div className="container-card_image tooltip top">
+      <ToolTip image={image} data={props.data} />
       <img src={image} alt="#" className="container-card_image-i" />
     </div>
   );

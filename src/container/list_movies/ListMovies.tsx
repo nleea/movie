@@ -15,7 +15,7 @@ export const ListMovies = () => {
       setState(data);
     };
     movies();
-  },[]);
+  }, []);
 
   return (
     <div className="container-list_movies">
@@ -28,8 +28,7 @@ export const ListMovies = () => {
       </div>
       <div className="container-list_movies-content">
         {state.map((m: any) => {
-          
-          return <Card url={m.poster_path} />;
+          return <Card url={m.poster_path} data={m} />;
         })}
       </div>
     </div>

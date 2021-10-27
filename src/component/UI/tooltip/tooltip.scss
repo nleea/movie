@@ -1,0 +1,13 @@
+.tooltip-container {
+  position: absolute;
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  z-index: 100;
+  visibility: hidden;
+}
+
+.image_tip {
+  width: 250px;
+  height: 300px;
+}
