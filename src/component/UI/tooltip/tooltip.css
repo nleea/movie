@@ -7,7 +7,43 @@
   visibility: hidden;
 }
 
+.tooltip-container_content{
+  margin-bottom: 15px;
+  text-align: justify;
+  padding: 3px;
+}
+
 .image_tip {
   width: 250px;
   height: 300px;
+}
+
+
+.tooltip {
+  position: relative;
+  display: none;
+}
+
+.tooltip .tiptext {
+  visibility: hidden;
+  width: 300px;
+  height: auto;
+  background: rgba(241, 233, 161, 0.8);
+  color: #000;
+  text-align: center;
+  border-radius: 3px;
+  padding: 6px 0;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip .tiptext::after {
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.tooltip:hover .tiptext {
+  visibility: visible;
 }

@@ -1,11 +1,11 @@
 .container-list_movies {
-  grid-row: 0.6666666667;
   margin-top: 10px;
   padding-top: 5px;
   padding-left: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  grid-row: 2/3;
 }
 .container-list_movies-button {
   display: flex;

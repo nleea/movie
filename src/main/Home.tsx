@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { DashBoard } from "../component/dashboard/DashBoard";
 import { Movies } from "../component/movies/Movies";
 import { ListMovies } from "../container/list_movies/ListMovies";
+import { Footer } from "../component/footer/Footer";
 import "./home.css";
 
 export const Home = () => {
@@ -21,7 +22,9 @@ export const Home = () => {
       <div className="main-content">
         <Movies />
         <ListMovies />
+        <Footer />
       </div>
+
     </div>
   );
 };

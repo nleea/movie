@@ -1,5 +1,5 @@
 import { _Link as Link } from "../UI/Link";
-import "./dashboard.scss";
+import "./dashboard.css";
 
 export const DashBoard = () => {
   return (

@@ -1,5 +1,5 @@
 import { CardMovies } from "../UI/movies/CardMovies";
-import "./movies.scss";
+import "./movies.css";
 
 export const Movies = () => {
   return (
