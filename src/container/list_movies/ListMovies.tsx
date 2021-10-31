@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import { Card } from "../../component/UI/card/Card";
+import { Button } from "../../component/UI/button/Button";
 import "./listmovies.css";
 
 export const ListMovies = () => {
@@ -31,11 +32,11 @@ export const ListMovies = () => {
   return (
     <div className="container-list_movies">
       <div className="container-list_movies-button">
-        <button onClick={() => getMovies("top_rated")} >Top Rated</button>
-        <button onClick={() => getMovies("upcoming")} >Upcomint</button>
-        <button onClick={() => getMovies("popular")}>Popular</button>
-        <button onClick={() => getMovies("now_playing")}>Now Playing</button>
-        <button onClick={() => getMovies("latest")} disabled={true} >Lastest</button>
+        <Button click={() => getMovies("top_rated")} text="Top Rated" ></Button>
+        <Button click={() => getMovies("upcoming")} text="Upcomint"></Button>
+        <Button click={() => getMovies("popular")} text="Popular" ></Button>
+        <Button click={() => getMovies("now_playing")} text="Now Playing" ></Button>
+        <Button click={() => getMovies("latest")} disabled={true} text="Lastest"></Button>
       </div>
       <div className="container-list_movies-content">
         {state.map((m: any) => {
