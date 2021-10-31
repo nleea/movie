@@ -17,19 +17,36 @@ export const ListMovies = () => {
     movies();
   }, []);
 
+
+  const getMovies = async (text: string, page: number = 1) => {
+    let url = `https://api.themoviedb.org/3/movie/${text}?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=${page}`;
+    if (text === "latest") {
+      url = `https://api.themoviedb.org/3/movie/${text}?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US`;
+    }
+    const resp = await Axios.get(url);
+    const data = (resp.data as any).results;
+    setState(data);
+  };
+
   return (
     <div className="container-list_movies">
       <div className="container-list_movies-button">
-        <button>Top Rated</button>
-        <button>Upcomint</button>
-        <button>Popular</button>
-        <button>Now Playing</button>
-        <button>Lastest</button>
+        <button onClick={() => getMovies("top_rated")} >Top Rated</button>
+        <button onClick={() => getMovies("upcoming")} >Upcomint</button>
+        <button onClick={() => getMovies("popular")}>Popular</button>
+        <button onClick={() => getMovies("now_playing")}>Now Playing</button>
+        <button onClick={() => getMovies("latest")} disabled={true} >Lastest</button>
       </div>
       <div className="container-list_movies-content">
         {state.map((m: any) => {
           return <Card url={m.poster_path} data={m} />;
         })}
+      </div>
+      <div className="container-pagination" >
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
       </div>
     </div>
   );

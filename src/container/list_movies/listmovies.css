@@ -34,3 +34,8 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.container-pagination {
+  display: flex;
+  flex-direction: row;
+  margin: 20px auto;
+}

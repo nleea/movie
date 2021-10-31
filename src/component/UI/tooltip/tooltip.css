@@ -36,6 +36,8 @@
   position: absolute;
   z-index: 1;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  bottom: 0;
+  right: 0;
 }
 
 .tooltip .tiptext::after {
