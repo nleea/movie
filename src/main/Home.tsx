@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { DashBoard } from "../component/dashboard/DashBoard";
-import { Movies } from "../component/movies/Movies";
-import { ListMovies } from "../container/list_movies/ListMovies";
 import { Footer } from "../component/footer/Footer";
+import { Routers } from "../component/route/Route";
 import "./home.css";
 
 export const Home = () => {
@@ -20,11 +19,11 @@ export const Home = () => {
         <DashBoard />
       </div>
       <div className="main-content">
-        <Movies />
-        <ListMovies />
+        <Routers />
+      </div>
+      <div className="footer" >
         <Footer />
       </div>
-
     </div>
   );
 };

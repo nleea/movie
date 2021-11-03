@@ -1,0 +1,40 @@
+.container-trending {
+    display: grid;
+    grid-template-areas: "type content";
+    grid-template-columns: 0.2fr 1fr;
+}
+
+.container-trending_type {
+    grid-area: type;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 15px;
+    min-height: 39hv;
+}
+
+.container-trending_type > button {
+    margin-bottom: 10px;
+    background-color: lightgray;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.container-trending_content {
+    grid-area: content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.height-auto_trending {
+    grid-template-rows: 1fr !important;
+}
+
+.container-trending_pagination {
+    margin: auto;
+    padding: 20px;
+}

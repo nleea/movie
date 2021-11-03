@@ -17,7 +17,7 @@ export const Card = (props: any) => {
   }, [props.url]);
 
   return (
-    <div className="container-card_image tooltip top">
+    <div className="container-card_image tooltip top" key={props.key} >
       <ToolTip image={image} data={props.data} />
       <img src={image} alt="#" className="container-card_image-i" />
     </div>

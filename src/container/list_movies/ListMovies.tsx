@@ -18,7 +18,6 @@ export const ListMovies = () => {
     movies();
   }, []);
 
-
   const getMovies = async (text: string, page: number = 1) => {
     let url = `https://api.themoviedb.org/3/movie/${text}?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=${page}`;
     if (text === "latest") {
