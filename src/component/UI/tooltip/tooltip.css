@@ -1,5 +1,5 @@
 .tooltip-container {
-  position: absolute;
+  position: absolreute;
   display: inline-block;
   width: 300px;
   height: 300px;
@@ -7,7 +7,7 @@
   visibility: hidden;
 }
 
-.tooltip-container_content{
+.tooltip-container_content {
   margin-bottom: 15px;
   text-align: justify;
   padding: 3px;

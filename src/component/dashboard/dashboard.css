@@ -1,30 +1,38 @@
 .dashboard-container {
   display: none;
 }
+
 .util-space {
   margin-right: 4px;
 }
+
 @media (min-width: 760px) {
   .dashboard-container {
     display: block;
     height: 100%;
-    background-color: #1d1c1c;
- }
+    background-color: #090b0b;
+    filter: blur(0.4px);
+    opacity: 0.9;
+  }
+
   .dashboard-container_links {
     display: flex;
     flex-direction: column;
     padding-top: 20px;
- }
+  }
+
   .dashboard-container_links-header {
     color: white;
     border-bottom: 1px grey solid;
     margin-bottom: 15px;
- }
+  }
+
   .dashboard-container_links-header h1 {
     margin: 15px auto;
     font-size: 1rem;
     text-align: center;
- }
+  }
+
   .dashboard-container_links-link {
     height: 2.5rem;
     margin-left: 5px;
@@ -34,8 +42,9 @@
     color: white;
     display: flex;
     text-decoration: none;
- }
+  }
+
   .dashboard-container_links-link:hover {
     background-color: black;
- }
+  }
 }

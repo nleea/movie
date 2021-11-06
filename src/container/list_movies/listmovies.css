@@ -5,8 +5,8 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  grid-row: 2/3;
 }
+
 .container-list_movies-button {
   display: flex;
   flex-direction: row;
@@ -14,6 +14,7 @@
   border-bottom: 1px solid gray;
   padding-bottom: 5px;
 }
+
 .container-list_movies-button button {
   border: none;
   color: white;
@@ -22,18 +23,21 @@
   width: 120px;
   height: 30px;
 }
+
 .container-list_movies-button button:hover {
   color: black;
   background: white;
   border: 1px solid grey;
   cursor: pointer;
 }
+
 .container-list_movies-content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .container-pagination {
   display: flex;
   flex-direction: row;

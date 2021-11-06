@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-content: center;
-    background-color: #0f0f0f;
+    background-color: #0c0f0f;
 }
 
 .footer-content_firts {
@@ -15,7 +15,7 @@
     box-shadow: 0px 1px grey;
 }
 
-.footer-content_firts > a {
+.footer-content_firts>a {
     color: white;
     text-decoration: none;
     width: 7rem;
@@ -45,7 +45,7 @@
     box-shadow: 0px 1px grey;
 }
 
-.footer-content_third > a {
+.footer-content_third>a {
     text-decoration: none;
     color: white;
     margin-bottom: 5px;

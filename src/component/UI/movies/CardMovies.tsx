@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Carrousel from "../movies/CarrouselMovie";
+import { Carrousel } from "./CarrouselMovie";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./cardMovies.css";
 
 export const CardMovies = () => {
@@ -18,10 +19,10 @@ export const CardMovies = () => {
   }, []);
 
   return (
-    <>
+    <div style={{ height: "100%", width: "90%", margin: "auto" }} >
       {data.length === 0 ? null : (
-        <Carrousel class={{ color: "black" }} movies={data} />
+        <Carrousel data={data} />
       )}
-    </>
+    </div>
   );
 };

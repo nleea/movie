@@ -8,17 +8,24 @@
     grid-area: type;
     display: flex;
     flex-direction: column;
-    margin: 10px 15px;
+    margin: 25px 15px;
     min-height: 39hv;
 }
 
-.container-series_type > button {
+.container-series_type>button {
     margin-bottom: 10px;
-    background-color: lightgray;
+    background-color: #111516;
     border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
+    border-radius: 13px;
+    padding: 10px;
     cursor: pointer;
+    color: #e7e8e8;
+}
+
+.container-series_type>button:hover,
+.container-series_type>button:hover:active {
+    background-color: #cfd0d0;
+    color: #050607;
 }
 
 .container-series_content {
@@ -37,4 +44,5 @@
 .container-series_pagination {
     margin: auto;
     padding: 20px;
+    height: 80px;
 }

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { DashBoard } from "../component/dashboard/DashBoard";
 import { Footer } from "../component/footer/Footer";
 import { Routers } from "../component/route/Route";
-import "./home.css";
+import "./main.css";
 
 export const Home = () => {
   const history = useHistory();

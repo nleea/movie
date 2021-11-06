@@ -8,7 +8,7 @@ export const ToolTip = (props: { data: any; image: string }) => {
       </div>
       <div className="tooltip-container_content">{props.data.overview}</div>
       <div className="tooltip-container_image" >
-        <img src={props.image} alt="/" className="image_tip"/>
+        <img src={props.image} alt="/" className="image_tip" />
       </div>
     </div>
   );
