@@ -31,11 +31,11 @@ export const ListMovies = () => {
   return (
     <div className="container-list_movies">
       <div className="container-list_movies-button">
-        <Button click={() => getMovies("top_rated")} text="Top Rated" ></Button>
-        <Button click={() => getMovies("upcoming")} text="Upcomint"></Button>
-        <Button click={() => getMovies("popular")} text="Popular" ></Button>
-        <Button click={() => getMovies("now_playing")} text="Now Playing" ></Button>
-        <Button click={() => getMovies("latest")} disabled={true} text="Lastest"></Button>
+        <Button click={() => getMovies("top_rated")} >Top Rated</Button>
+        <Button click={() => getMovies("upcoming")} >Upcomint</Button>
+        <Button click={() => getMovies("popular")} >Popular</Button>
+        <Button click={() => getMovies("now_playing")} >Now Playing</Button>
+        <Button click={() => getMovies("latest")} disabled={true} >Lastest</Button>
       </div>
       <div className="container-list_movies-content">
         {state.map((m: any) => {
