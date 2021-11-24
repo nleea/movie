@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import { Card } from "../UI/card/Card";
+import { Button } from "../UI/button/Button";
+import { Select } from "../select/Select";
 import "./series.css";
 
 const Series = () => {
@@ -37,13 +39,13 @@ const Series = () => {
     return (
         <>
             <div className="container-series" >
-                <div className="container-series_type" >
-                    <button onClick={() => getSeries('top_rated')} >Top Rated</button>
-                    <button onClick={() => getSeries('latest')} disabled={true}>Lasted</button>
-                    <button onClick={() => getSeries('airing_today')} >TV airing today</button>
-                    <button onClick={() => getSeries('on_the_air')}>On the Air</button>
-                    <button onClick={() => getSeries('popular')}>Popular</button>
-                </div>
+                <Select class="container-series_type" >
+                    <Button click={() => getSeries('top_rated')} type="container-button-type" >Top Rated</Button>
+                    <Button click={() => getSeries('latest')} disabled={true} type="container-button-type">Lasted</Button>
+                    <Button click={() => getSeries('airing_today')} type="container-button-type">TV airing today</Button>
+                    <Button click={() => getSeries('on_the_air')} type="container-button-type">On the Air</Button>
+                    <Button click={() => getSeries('popular')} type="container-button-type">Popular</Button>
+                </Select>
                 <div className="container-series_content">
                     {
                         series.map((series: any, index: number) => {

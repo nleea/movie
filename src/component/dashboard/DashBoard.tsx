@@ -20,8 +20,8 @@ export const DashBoard = () => {
         <Link url="/genrer" class="dashboard-container_links-link">
           <i className="bi bi-book util-space"></i> Genrer
         </Link>
-        <Link url="/companies" class="dashboard-container_links-link">
-          <i className="bi bi-building util-space"></i> Companies
+        <Link url="/popular" class="dashboard-container_links-link">
+          <i className="bi bi-building util-space"></i> Person Popular
         </Link>
         <Link url="/providers" class="dashboard-container_links-link">
           <i className="bi bi-truck util-space"></i> Providers

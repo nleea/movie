@@ -12,14 +12,6 @@
     min-height: 39hv;
 }
 
-.container-trending_type>button {
-    margin-bottom: 10px;
-    background-color: lightgray;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    cursor: pointer;
-}
 
 .container-trending_content {
     grid-area: content;

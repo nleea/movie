@@ -1,0 +1,12 @@
+.container-button-type {
+    grid-area: type;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 15px;
+    background-color: #111516;
+    border: 1px solid lightgray;
+    color: #e7e8e8;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 13px;
+}

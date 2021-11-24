@@ -1,0 +1,25 @@
+.container-select_buttons {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    height: fit-content;
+    background-color: rgba(245, 245, 245, 0.979);
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px 1px rgb(94, 94, 94);
+}
+
+.container-select_buttons-header {
+    background-color: black;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 50px;
+    font-size: large;
+    text-align: center;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.container-select_buttons-header>div {
+    padding: 10px;
+}

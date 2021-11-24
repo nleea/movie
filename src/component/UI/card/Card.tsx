@@ -20,7 +20,7 @@ export const Card = (props: any) => {
 
   return (
     <div className="container-card_image tooltip top" key={props.key} >
-      <Tippy content={<ToolTip image={image} data={props.data} />} >
+      <Tippy content={<ToolTip image={image} data={props.data} />} inlinePositioning={true}>
         <img src={image} alt="#" className="container-card_image-i" />
       </Tippy>
     </div>
