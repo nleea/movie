@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Axios from "axios";
-import { Card } from "../UI/card/person-card/person-card";
+import { Card } from "../UI/card/Card";
 import { Button } from "../UI/button/Button";
+import { ToolTip } from "../UI/tooltip/person-tooltip/person-tooltip";
 import "./person.css";
 
 const Person = () => {
@@ -27,9 +28,9 @@ const Person = () => {
 
     return (
         <div className="container-popular">
-            <h1>Person famous</h1>
+            <h1>Persons famous</h1>
             <div className="container-popular_content">
-                {popular ? popular.map((person: any, index) => <Card data={person} url={person.profile_path} key={index} />) : null}
+                {popular ? popular.map((person: any, index) => <Card data={person} url={person.profile_path} key={index} component={ToolTip} />) : null}
             </div>
             <div className="container-genrer_pagination" >
                 <Button click={() => GetPopular()} type="">1</Button>

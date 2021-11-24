@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import { Button } from "../UI/button/Button";
 import { Card } from "../UI/card/Card";
+import { ToolTip } from "../UI/tooltip/Tooltip";
 import { Select } from "../select/Select";
 import "./genrer.css";
 
@@ -38,6 +39,9 @@ const Genrer = () => {
 
     return (
         <>
+            <div className="genrer-title">
+                <h1>Genrer</h1>
+            </div>
             <div className="container-genrer">
                 <Select class="container-genrer_type">
                     <Button click={() => getByGenrer(28)} type="container-button-type">Action</Button>
@@ -61,7 +65,7 @@ const Genrer = () => {
                     <Button click={() => getByGenrer(37)} type="container-button-type">Western</Button>
                 </Select>
                 <div className="container-genrer_content">
-                    {genrer.map((genrer: any, index) => <Card data={genrer} url={genrer.poster_path} key={index} />)}
+                    {genrer.map((genrer: any, index) => <Card data={genrer} url={genrer.poster_path} key={index} component={ToolTip} />)}
                 </div>
             </div>
             <div className="container-genrer_pagination" >

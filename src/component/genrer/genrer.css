@@ -1,3 +1,13 @@
+.genrer-title {
+    text-align: center;
+    font-size: 2rem;
+    background-color: #111516;
+    color: white;
+    width: 70%;
+    margin: auto;
+    text-justify: auto;
+}
+
 .container-genrer {
     display: grid;
     grid-template-areas: "type content";

@@ -17,6 +17,14 @@
   border-radius: 10px;
 }
 
+
+.image_tip-providers {
+  width: 200px;
+  height: 220px;
+  margin-top: 5px;
+  border-radius: 10px;
+}
+
 .tooltip-container_data {
   width: 100%;
 }

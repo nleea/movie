@@ -6,6 +6,7 @@ const Series = loadable(() => import('../series/Series'));
 const Trending = loadable(() => import("../trending/Trending"));
 const Genrer = loadable(() => import('../genrer/Genrer'));
 const Popular = loadable(() => import('../person/Person'))
+const Provider = loadable(() => import('../providers/Providers'))
 
 export const Routers = () => {
     return (
@@ -24,6 +25,9 @@ export const Routers = () => {
             </Route>
             <Route path="/popular">
                 <Popular />
+            </Route>
+            <Route path="/providers" >
+                <Provider />
             </Route>
         </Switch>
     );

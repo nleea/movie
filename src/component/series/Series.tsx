@@ -3,6 +3,7 @@ import Axios from "axios";
 import { Card } from "../UI/card/Card";
 import { Button } from "../UI/button/Button";
 import { Select } from "../select/Select";
+import { ToolTip } from "../UI/tooltip/Tooltip";
 import "./series.css";
 
 const Series = () => {
@@ -38,6 +39,7 @@ const Series = () => {
 
     return (
         <>
+            <div className="series-title" ><h1>Series</h1></div>
             <div className="container-series" >
                 <Select class="container-series_type" >
                     <Button click={() => getSeries('top_rated')} type="container-button-type" >Top Rated</Button>
@@ -49,7 +51,7 @@ const Series = () => {
                 <div className="container-series_content">
                     {
                         series.map((series: any, index: number) => {
-                            return <Card data={series} url={series.poster_path} key={index} />
+                            return <Card data={series} url={series.poster_path} key={index} component={ToolTip} type="series" />
                         })
                     }
                 </div>

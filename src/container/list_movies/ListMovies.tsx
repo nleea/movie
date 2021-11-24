@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import { Card } from "../../component/UI/card/Card";
 import { Button } from "../../component/UI/button/Button";
+import { ToolTip } from "../../component/UI/tooltip/Tooltip";
 import "./listmovies.css";
 
 export const ListMovies = () => {
@@ -39,7 +40,7 @@ export const ListMovies = () => {
       </div>
       <div className="container-list_movies-content">
         {state.map((m: any) => {
-          return <Card url={m.poster_path} data={m} />;
+          return <Card url={m.poster_path} data={m} component={ToolTip} tupe="movies"></Card>;
         })}
       </div>
       <div className="container-pagination" >
