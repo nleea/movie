@@ -1,28 +1,27 @@
 import { useEffect, useState } from "react";
-import Axios from "axios";
 import { Card } from "../UI/card/Card";
 import { Button } from "../UI/button/Button";
 import { Select } from "../select/Select";
 import { ToolTip } from "../UI/tooltip/Tooltip";
+import { Wrap } from "../../container/wrap/Wrap";
+import { Fetch } from "../../custom-hooks/fetch-data";
+import { FetchType } from "../../custom-hooks/fetch-type";
 import "./series.css";
 
 const Series = () => {
     const [series, setSeries] = useState([]);
     const [type, setType] = useState('top_rated');
+    const { http, loading } = Fetch();
+    const { httpType } = FetchType();
 
     useEffect(() => {
         const control = document.querySelector(".main-content")
         control?.classList.add('height-auto_series');
-        const request = async () => {
-            const resp = await Axios.get("https://api.themoviedb.org/3/tv/top_rated?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=1");
-            const data = (resp.data as any).results;
-            setSeries(data);
-        }
-        request();
+        http("https://api.themoviedb.org/3/tv/top_rated?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=1", setSeries);
         return () => {
             control?.classList.remove('height-auto_series');
         }
-    }, []);
+    }, [http]);
 
     const getSeries = async (text: string, page: number = 1) => {
         if (type !== text) {
@@ -32,13 +31,11 @@ const Series = () => {
         if (text === "latest") {
             url = `https://api.themoviedb.org/3/tv/${text}?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=${page}`;
         }
-        const resp = await Axios.get(url);
-        const data = (resp.data as any).results;
-        setSeries(data);
+        httpType(url, setSeries);
     };
 
     return (
-        <>
+        <Wrap loading={loading} >
             <div className="series-title" ><h1>Series</h1></div>
             <div className="container-series" >
                 <Select class="container-series_type" >
@@ -62,7 +59,7 @@ const Series = () => {
                 <button onClick={() => getSeries(type, 3)}>3</button>
                 <button onClick={() => getSeries(type, 4)}>4</button>
             </div>
-        </>
+        </Wrap>
     );
 };
 

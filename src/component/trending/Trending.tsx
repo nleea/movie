@@ -1,40 +1,37 @@
 import { useEffect, useState } from "react";
-import Axios from "axios";
 import { Card } from "../UI/card/Card";
 import { Button } from "../UI/button/Button";
 import { Select } from "../select/Select";
 import { ToolTip } from "../UI/tooltip/Tooltip";
+import { Wrap } from "../../container/wrap/Wrap";
+import { Fetch } from "../../custom-hooks/fetch-data";
+import { FetchType } from "../../custom-hooks/fetch-type";
 import "./trending.css";
+
 
 const Trending = () => {
     const [trending, setTrending] = useState([]);
     const [date, setDate] = useState("day");
+    const { http, loading } = Fetch();
+    const { httpType } = FetchType();
 
     useEffect(() => {
         const control = document.querySelector(".main-content");
         control?.classList.add("height-auto_trending");
-        const request = async () => {
-            const resp = await Axios.get(
-                "https://api.themoviedb.org/3/trending/all/day?api_key=05d20036abfa4d9de53f269637c358dc"
-            );
-            const data = (resp.data as any).results;
-            setTrending(data);
-        };
-        request();
+        http("https://api.themoviedb.org/3/trending/all/day?api_key=05d20036abfa4d9de53f269637c358dc", setTrending)
         return () => {
             control?.classList.remove("height-auto_trending");
         };
-    }, []);
+    }, [http]);
 
     const getTrending = async (text: string) => {
         let url = `https://api.themoviedb.org/3/trending/${text}/${date}?api_key=05d20036abfa4d9de53f269637c358dc`;
-        const resp = await Axios.get(url);
-        const data = (resp.data as any).results;
-        setTrending(data);
+        httpType(url, setTrending);
     };
 
+
     return (
-        <>
+        <Wrap loading={loading} >
             <div className="trending-title">
                 <h1>Trending</h1>
             </div>
@@ -79,14 +76,9 @@ const Trending = () => {
                         );
                     })}
                 </div>
-                <div className="container-trending_pagination">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>4</button>
-                </div>
             </div>
-        </>
+
+        </Wrap >
     );
 };
 

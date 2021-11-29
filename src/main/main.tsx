@@ -11,7 +11,7 @@ export const Home = () => {
     if (history.location.pathname === "/") {
       history.push("/movies");
     }
-  });
+  }, [history]);
 
   return (
     <div className="content-separate">

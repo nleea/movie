@@ -1,6 +1,30 @@
 .container-provider {
     margin-top: 30px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-type {
+    width: 10%;
+    margin: 10px auto;
+    border-radius: 10px;
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-type>button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.container-type>button:hover {
+    background-color: white;
+    color: black;
 }
 
 .container-provider-list {

@@ -2,10 +2,17 @@
     margin-top: 30px;
 }
 
-.container-popular>h1 {
-    margin: 15px auto;
+
+
+.popular-title {
+    margin: 10px auto;
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 2rem;
+    background-color: #111516;
+    color: white;
+    width: 70%;
+    margin: auto;
+    text-justify: auto;
 }
 
 .container-popular_content {
