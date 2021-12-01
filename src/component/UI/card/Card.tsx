@@ -8,13 +8,20 @@ export const Card = (props: any) => {
   const [image, setImage] = useState("");
 
   useEffect(() => {
+    let _image = true;
     const image = async () => {
       const resp = await Axios.get(
         `https://image.tmdb.org/t/p/w500/${props.url}`
       );
-      setImage(resp.config.url!);
+      if (_image) {
+        setImage(resp.config.url!);
+      }
     };
     image();
+
+    return () => {
+      _image = false;
+    };
   }, [props.url]);
 
   return (

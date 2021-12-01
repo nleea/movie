@@ -13,7 +13,9 @@ const Person = () => {
     const { httpPage } = FetchPage();
 
     useEffect(() => {
-        http('https://api.themoviedb.org/3/person/popular?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=1', setPopular);
+        let leak = true;
+        http('https://api.themoviedb.org/3/person/popular?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=1', setPopular, leak);
+        return () => { leak = false; }
     }, [http]);
 
     const GetPopular = async (page: number = 1) => {

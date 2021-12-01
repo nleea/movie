@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useHistory, useRouteMatch, Route } from "react-router-dom";
 import { Card } from "../UI/card/Card";
 import { Button } from "../UI/button/Button";
 import { Select } from "../select/Select";
@@ -13,13 +14,17 @@ const Series = () => {
     const [type, setType] = useState('top_rated');
     const { http, loading } = Fetch();
     const { httpType } = FetchType();
+    const { url } = useRouteMatch();
+    const { location, replace } = useHistory();
 
     useEffect(() => {
         const control = document.querySelector(".main-content")
         control?.classList.add('height-auto_series');
-        http("https://api.themoviedb.org/3/tv/top_rated?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=1", setSeries);
+        let leak = true;
+        http("https://api.themoviedb.org/3/tv/top_rated?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=1", setSeries, leak);
         return () => {
             control?.classList.remove('height-auto_series');
+            leak = false;
         }
     }, [http]);
 
@@ -27,11 +32,21 @@ const Series = () => {
         if (type !== text) {
             setType(text);
         }
-        let url = `https://api.themoviedb.org/3/tv/${text}?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=${page}`;
-        if (text === "latest") {
-            url = `https://api.themoviedb.org/3/tv/${text}?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=${page}`;
-        }
-        httpType(url, setSeries);
+        replace(`${url}/${text}`);
+        let _url = `https://api.themoviedb.org/3/tv/${text}?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=${page}`;
+        httpType(_url, setSeries);
+    };
+
+    const Component = () => {
+        return (
+            <Route exact path={location.pathname}>
+                {
+                    series.map((series: any, index: number) => {
+                        return <Card data={series} url={series.poster_path} key={index} component={ToolTip} type="series" />
+                    })
+                }
+            </Route>
+        );
     };
 
     return (
@@ -46,11 +61,7 @@ const Series = () => {
                     <Button click={() => getSeries('popular')} type="container-button-type">Popular</Button>
                 </Select>
                 <div className="container-series_content">
-                    {
-                        series.map((series: any, index: number) => {
-                            return <Card data={series} url={series.poster_path} key={index} component={ToolTip} type="series" />
-                        })
-                    }
+                    <Component />
                 </div>
             </div>
             <div className="container-series_pagination" >

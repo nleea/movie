@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card } from "../UI/card/Card";
+import { useHistory, useRouteMatch, Route } from "react-router-dom";
 import { Button } from "../UI/button/Button";
 import { Select } from "../select/Select";
 import { ToolTip } from "../UI/tooltip/Tooltip";
@@ -14,21 +15,44 @@ const Trending = () => {
     const [date, setDate] = useState("day");
     const { http, loading } = Fetch();
     const { httpType } = FetchType();
+    const { url } = useRouteMatch();
+    const { location, replace } = useHistory();
 
     useEffect(() => {
         const control = document.querySelector(".main-content");
         control?.classList.add("height-auto_trending");
-        http("https://api.themoviedb.org/3/trending/all/day?api_key=05d20036abfa4d9de53f269637c358dc", setTrending)
+        let leak = true;
+        if (leak) {
+            http("https://api.themoviedb.org/3/trending/all/day?api_key=05d20036abfa4d9de53f269637c358dc", setTrending, leak);
+        };
         return () => {
             control?.classList.remove("height-auto_trending");
+            leak = false;
         };
     }, [http]);
 
     const getTrending = async (text: string) => {
-        let url = `https://api.themoviedb.org/3/trending/${text}/${date}?api_key=05d20036abfa4d9de53f269637c358dc`;
-        httpType(url, setTrending);
+        replace(`${url}/${text}`);
+        let _url = `https://api.themoviedb.org/3/trending/${text}/${date}?api_key=05d20036abfa4d9de53f269637c358dc`;
+        httpType(_url, setTrending);
     };
 
+    const Component = () => {
+        return (
+            <Route exact path={location.pathname} >
+                {trending.map((trend: any) => {
+                    return (
+                        <Card
+                            url={trend.poster_path}
+                            data={trend}
+                            key={trend.id}
+                            component={ToolTip}
+                        />
+                    );
+                })}
+            </Route>
+        );
+    };
 
     return (
         <Wrap loading={loading} >
@@ -65,19 +89,9 @@ const Trending = () => {
                     </Button>
                 </Select>
                 <div className="container-trending_content">
-                    {trending.map((trend: any) => {
-                        return (
-                            <Card
-                                url={trend.poster_path}
-                                data={trend}
-                                key={trend.id}
-                                component={ToolTip}
-                            />
-                        );
-                    })}
+                    <Component />
                 </div>
             </div>
-
         </Wrap >
     );
 };

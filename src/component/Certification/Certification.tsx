@@ -11,7 +11,11 @@ const Certification = () => {
     const { httpType } = FetchType();
 
     useEffect(() => {
-        http("https://api.themoviedb.org/3/certification/movie/list?api_key=05d20036abfa4d9de53f269637c358dc", setCertification)
+        let leak = true;
+        http("https://api.themoviedb.org/3/certification/movie/list?api_key=05d20036abfa4d9de53f269637c358dc", setCertification, leak)
+        return () => {
+            leak = false;
+        };
     }, [http]);
 
     const getType = async (type: string) => {
@@ -31,7 +35,7 @@ const Certification = () => {
             <Wrap loading={loading} >
                 <div className="certification-container">
                     {Object.keys(Certification).map((key) => {
-                        return <div className="certification-card_container" >
+                        return <div className="certification-card_container" key={key}>
                             <h1>{key}</h1>
                             {
                                 Certification[key].map((data: any) => {
