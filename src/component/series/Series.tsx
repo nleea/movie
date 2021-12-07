@@ -42,7 +42,7 @@ const Series = () => {
             <Route exact path={location.pathname}>
                 {
                     series.map((series: any, index: number) => {
-                        return <Card data={series} url={series.poster_path} key={index} component={ToolTip} type="series" />
+                        return <Card data={series} url={series.poster_path} key={series.data} component={ToolTip} type="series" />
                     })
                 }
             </Route>

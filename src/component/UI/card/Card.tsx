@@ -25,7 +25,7 @@ export const Card = (props: any) => {
   }, [props.url]);
 
   return (
-    <div className="container-card_image tooltip top" key={props.key} >
+    <div className="container-card_image tooltip top" key={props.data.id} >
       <Tippy content={<props.component data={props.data} image={image} />} inlinePositioning={true}>
         <img src={image} alt="#" className="container-card_image-i" />
       </Tippy>

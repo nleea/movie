@@ -1,29 +1,20 @@
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { DashBoard } from "../component/dashboard/DashBoard";
+import { useReducer } from "react";
+import { reducer, Context, initialStateApp } from "../provider/context";
+import { Layout } from "../component/Layout/Layout";
 import { Footer } from "../component/footer/Footer";
-import { Routers } from "../component/route/Route";
 import "./main.css";
 
 export const Home = () => {
-  const history = useHistory();
-  useEffect(() => {
-    if (history.location.pathname === "/") {
-      history.push("/movies");
-    }
-  }, [history]);
+  const [state, dispatch] = useReducer(reducer, initialStateApp);
 
   return (
-    <div className="content-separate">
-      <div className="dashboard">
-        <DashBoard />
+    <Context.Provider value={{ state, dispatch }} >
+      <div className="content-separate">
+        <Layout />
+        <div className="footer" >
+          <Footer />
+        </div>
       </div>
-      <div className="main-content">
-        <Routers />
-      </div>
-      <div className="footer" >
-        <Footer />
-      </div>
-    </div>
+    </Context.Provider>
   );
 };
