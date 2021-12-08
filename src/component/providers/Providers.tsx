@@ -1,4 +1,4 @@
-import { useState, useEffect, } from "react";
+import { useState, useEffect } from "react";
 import { Route, useHistory, useRouteMatch } from "react-router-dom";
 import { Card } from "../UI/card/Card";
 import { Button } from "../UI/button/Button";
@@ -6,6 +6,7 @@ import { Wrap } from "../../container/wrap/Wrap";
 import { ProviderToolTip } from "../UI/tooltip/provider/provider";
 import { Fetch } from "../../custom-hooks/fetch-data";
 import { FetchType } from "../../custom-hooks/fetch-type";
+import { movie_api } from "../../util/urls";
 import "./provider.css";
 
 const Providers = () => {
@@ -18,25 +19,26 @@ const Providers = () => {
     useEffect(() => {
         let leak = true;
         http(
-            "https://api.themoviedb.org/3/watch/providers/movie?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US",
-            setProviders, leak
+            `https://api.themoviedb.org/3/watch/providers/movie?api_key=${movie_api}&language=en-US`,
+            setProviders,
+            leak
         );
         return () => {
             leak = false;
-        }
+        };
     }, [http]);
 
     const typeProvider = (type: string) => {
         replace(`${url}/${type}`);
-
         if (type === "movie") {
             http(
-                "https://api.themoviedb.org/3/watch/providers/movie?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US",
-                setProviders, true
+                `https://api.themoviedb.org/3/watch/providers/movie?api_key=${movie_api}&language=en-US`,
+                setProviders,
+                true
             );
         } else {
             httpType(
-                "https://api.themoviedb.org/3/watch/providers/tv?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US",
+                `https://api.themoviedb.org/3/watch/providers/tv?api_key=${movie_api}&language=en-US`,
                 setProviders
             );
         }

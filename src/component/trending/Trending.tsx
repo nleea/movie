@@ -7,6 +7,7 @@ import { ToolTip } from "../UI/tooltip/Tooltip";
 import { Wrap } from "../../container/wrap/Wrap";
 import { Fetch } from "../../custom-hooks/fetch-data";
 import { FetchType } from "../../custom-hooks/fetch-type";
+import { movie_api } from "../../util/urls";
 import "./trending.css";
 
 
@@ -23,7 +24,7 @@ const Trending = () => {
         control?.classList.add("height-auto_trending");
         let leak = true;
         if (leak) {
-            http("https://api.themoviedb.org/3/trending/all/day?api_key=05d20036abfa4d9de53f269637c358dc", setTrending, leak);
+            http("https://api.themoviedb.org/3/trending/all/day?api_key=" + movie_api, setTrending, leak);
         };
         return () => {
             control?.classList.remove("height-auto_trending");
@@ -33,7 +34,7 @@ const Trending = () => {
 
     const getTrending = async (text: string) => {
         replace(`${url}/${text}`);
-        let _url = `https://api.themoviedb.org/3/trending/${text}/${date}?api_key=05d20036abfa4d9de53f269637c358dc`;
+        let _url = `https://api.themoviedb.org/3/trending/${text}/${date}?api_key=${movie_api}`;
         httpType(_url, setTrending);
     };
 

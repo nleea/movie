@@ -8,7 +8,9 @@
 
 @media (min-width: 760px) {
   .dashboard-container {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100%;
     background-color: #090b0b;
     filter: blur(0.4px);
@@ -19,6 +21,11 @@
     display: flex;
     flex-direction: column;
     padding-top: 20px;
+  }
+
+  .dashboard-container_config {
+    color: white;
+    margin-bottom: 10px;
   }
 
   .dashboard-container_links-header {
@@ -44,7 +51,20 @@
     text-decoration: none;
   }
 
-  .dashboard-container_links-link:hover {
+  .dashboard-container_config-link {
+    height: 2.5rem;
+    margin-left: 5px;
+    margin-top: 3px;
+    align-items: center;
+    text-align: start;
+    color: white;
+    display: flex;
+    text-decoration: none;
+  }
+
+  .dashboard-container_links-link:hover,
+  .dashboard-container_config-link:hover {
     background-color: black;
+    cursor: pointer;
   }
 }

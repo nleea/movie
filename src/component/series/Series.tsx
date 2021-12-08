@@ -7,6 +7,7 @@ import { ToolTip } from "../UI/tooltip/Tooltip";
 import { Wrap } from "../../container/wrap/Wrap";
 import { Fetch } from "../../custom-hooks/fetch-data";
 import { FetchType } from "../../custom-hooks/fetch-type";
+import { movie_api } from "../../util/urls";
 import "./series.css";
 
 const Series = () => {
@@ -21,7 +22,7 @@ const Series = () => {
         const control = document.querySelector(".main-content")
         control?.classList.add('height-auto_series');
         let leak = true;
-        http("https://api.themoviedb.org/3/tv/top_rated?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=1", setSeries, leak);
+        http(`https://api.themoviedb.org/3/tv/top_rated?api_key=${movie_api}&language=en-US&page=1`, setSeries, leak);
         return () => {
             control?.classList.remove('height-auto_series');
             leak = false;
@@ -33,7 +34,7 @@ const Series = () => {
             setType(text);
         }
         replace(`${url}/${text}`);
-        let _url = `https://api.themoviedb.org/3/tv/${text}?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=${page}`;
+        let _url = `https://api.themoviedb.org/3/tv/${text}?api_key=${movie_api}&language=en-US&page=${page}`;
         httpType(_url, setSeries);
     };
 

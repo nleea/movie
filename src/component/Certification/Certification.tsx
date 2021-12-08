@@ -3,6 +3,7 @@ import { Wrap } from "../../container/wrap/Wrap";
 import { Button } from "../UI/button/Button";
 import { Fetch } from "../../custom-hooks/fetch-data";
 import { FetchType } from "../../custom-hooks/fetch-type";
+import { movie_api } from "../../util/urls";
 import "./certification.css";
 
 const Certification = () => {
@@ -12,7 +13,7 @@ const Certification = () => {
 
     useEffect(() => {
         let leak = true;
-        http("https://api.themoviedb.org/3/certification/movie/list?api_key=05d20036abfa4d9de53f269637c358dc", setCertification, leak)
+        http(`https://api.themoviedb.org/3/certification/movie/list?api_key=${movie_api}`, setCertification, leak)
         return () => {
             leak = false;
         };
@@ -20,9 +21,9 @@ const Certification = () => {
 
     const getType = async (type: string) => {
         if (type === "movies") {
-            httpType("https://api.themoviedb.org/3/certification/movie/list?api_key=05d20036abfa4d9de53f269637c358dc", setCertification);
+            httpType("https://api.themoviedb.org/3/certification/movie/list?api_key=" + movie_api, setCertification);
         } else {
-            httpType("https://api.themoviedb.org/3/certification/tv/list?api_key=05d20036abfa4d9de53f269637c358dc", setCertification);
+            httpType("https://api.themoviedb.org/3/certification/tv/list?api_key=" + movie_api, setCertification);
         }
     };
 

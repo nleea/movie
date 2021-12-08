@@ -2,15 +2,24 @@ import { v4 as uuidv4 } from "uuid";
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { getDatabase, set, ref } from "firebase/database";
+import {
+  api_key,
+  app_auth,
+  app_id,
+  app_messag,
+  app_project,
+  app_storage,
+  database_url,
+} from "../../util/config";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDkXN8QygeDtt0z1ejb43luxGNByWDOGh8",
-  authDomain: "firts-app-f79b4.firebaseapp.com",
-  databaseURL: "https://firts-app-f79b4.firebaseio.com",
-  projectId: "firts-app-f79b4",
-  storageBucket: "firts-app-f79b4.appspot.com",
-  messagingSenderId: "167847847713",
-  appId: "1:167847847713:web:a166ec62ff208b68944060",
+  apiKey: api_key,
+  authDomain: app_auth,
+  databaseURL: database_url,
+  projectId: app_project,
+  storageBucket: app_storage,
+  messagingSenderId: app_messag,
+  appId: app_id,
 };
 
 const app = initializeApp(firebaseConfig);

@@ -7,6 +7,7 @@ import { Select } from "../select/Select";
 import { Fetch } from "../../custom-hooks/fetch-data";
 import { FetchPage } from "../../custom-hooks/fetch-page";
 import { Wrap } from "../../container/wrap/Wrap";
+import { movie_api } from "../../util/urls";
 import "./genrer.css";
 
 //https://api.themoviedb.org/3/movie/385128/videos?api_key=05d20036abfa4d9de53f269637c358dc
@@ -24,7 +25,7 @@ const Genrer = () => {
         const control = document.querySelector(".main-content")
         control?.classList.add('height-auto_series');
         let leak = true;
-        http(`http://api.themoviedb.org/3/genre/28/movies?api_key=05d20036abfa4d9de53f269637c358dc&page=1`, setGenrer, leak);
+        http(`http://api.themoviedb.org/3/genre/28/movies?api_key=${movie_api}&page=1`, setGenrer, leak);
         return () => {
             control?.classList.remove('height-auto_series');
             leak = false;
@@ -36,7 +37,7 @@ const Genrer = () => {
             setType(id);
         }
         history.replace(`${url}/${genrer}`);
-        let _url = `http://api.themoviedb.org/3/genre/${id}}/movies?api_key=05d20036abfa4d9de53f269637c358dc&page=${page}`;
+        let _url = `http://api.themoviedb.org/3/genre/${id}}/movies?api_key=${movie_api}&page=${page}`;
         httpPage(_url, setGenrer);
         setType(id);
     };
@@ -46,7 +47,6 @@ const Genrer = () => {
             <Route exact path={history.location.pathname}>
                 {genrer.map((genrer: any, index) => <Card data={genrer} url={genrer.poster_path} key={index} component={ToolTip} />)}
             </Route>
-
         );
     };
 

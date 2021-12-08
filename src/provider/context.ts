@@ -11,7 +11,7 @@ interface IinitialStateApp {
 
 interface Iaction {
   type: string;
-  payload: any;
+  payload?: any;
 }
 
 export const initialStateApp: IinitialStateApp = {

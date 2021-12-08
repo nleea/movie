@@ -1,7 +1,15 @@
+import { useContext } from "react";
 import { _Link as Link } from "../UI/Link";
+import { Context } from "../../provider/context";
 import "./dashboard.css";
 
 export const DashBoard = () => {
+  const { dispatch } = useContext(Context);
+
+  const Logout = () => {
+    dispatch({ type: "logout" });
+  };
+
   return (
     <div className="dashboard-container">
       <div className="dashboard-container_links">
@@ -32,6 +40,14 @@ export const DashBoard = () => {
         <Link url="/change" class="dashboard-container_links-link">
           <i className="bi bi-key util-space"></i> Change
         </Link>
+      </div>
+      <div className="dashboard-container_config">
+        <div className="dashboard-container_config-link" >
+          <i className="bi bi-wrench util-space"></i>  Config
+        </div>
+        <div className="dashboard-container_config-link" onClick={Logout}>
+          <i className="bi bi-box-arrow-right util-space"></i>  Logout
+        </div>
       </div>
     </div>
   );

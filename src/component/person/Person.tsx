@@ -5,6 +5,7 @@ import { ToolTip } from "../UI/tooltip/person-tooltip/person-tooltip";
 import { Wrap } from "../../container/wrap/Wrap";
 import { Fetch } from "../../custom-hooks/fetch-data";
 import { FetchPage } from "../../custom-hooks/fetch-page";
+import { movie_api } from "../../util/urls";
 import "./person.css";
 
 const Person = () => {
@@ -14,12 +15,12 @@ const Person = () => {
 
     useEffect(() => {
         let leak = true;
-        http('https://api.themoviedb.org/3/person/popular?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=1', setPopular, leak);
+        http(`https://api.themoviedb.org/3/person/popular?api_key=${movie_api}&language=en-US&page=1`, setPopular, leak);
         return () => { leak = false; }
     }, [http]);
 
     const GetPopular = async (page: number = 1) => {
-        httpPage(`https://api.themoviedb.org/3/person/popular?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=${page}`, setPopular)
+        httpPage(`https://api.themoviedb.org/3/person/popular?api_key=${movie_api}&language=en-US&page=${page}`, setPopular)
     };
 
     return (
