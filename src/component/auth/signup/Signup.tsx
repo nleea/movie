@@ -3,8 +3,16 @@ import { Context } from "../../../provider/context";
 import { _Link as Link } from "../../UI/Link";
 import "./signup.css";
 
+const data = {
+    name: "",
+    lastname: "",
+    age: 0,
+    email: "",
+    password: ""
+}
+
 const Signup = () => {
-    const [user, setuser] = useState({ name: "", lastname: "", age: 0, email: "", password: "" });
+    const [user, setuser] = useState(data);
     const { dispatch } = useContext(Context);
 
     useEffect(() => {

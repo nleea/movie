@@ -6,8 +6,13 @@ import { auth } from "../../../custom-hooks/Auth/auth";
 import { _Link as Link } from "../../UI/Link";
 import "./signin.css";
 
+const data = {
+    email: "",
+    password: ""
+};
+
 const Signin = () => {
-    const [user, setuser] = useState({ email: "", password: "" });
+    const [user, setuser] = useState(data);
     const { dispatch } = useContext(Context);
     const history = useHistory();
 
