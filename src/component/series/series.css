@@ -3,7 +3,7 @@
     font-size: 2rem;
     background-color: #111516;
     color: white;
-    width: 70%;
+    width: 100%;
     margin: auto;
     text-justify: auto;
 }
@@ -11,12 +11,13 @@
 .container-series {
     display: grid;
     grid-template-areas: "type content";
-    grid-template-columns: 0.2fr 1fr;
+    grid-template-columns: 0.7fr 1fr;
 }
 
 .container-series_type {
     grid-area: type;
     display: flex;
+    position: fixed;
     flex-direction: column;
     margin: 25px 15px;
     min-height: 39hv;
@@ -55,4 +56,18 @@
     margin: auto;
     padding: 20px;
     height: 80px;
+}
+
+@media (min-width:500px) {
+    .series-title {
+        width: 70%;
+    }
+
+    .container-series {
+        grid-template-columns: 0.2fr 1fr;
+    }
+
+    .container-series_type {
+        position: absolute;
+    }
 }

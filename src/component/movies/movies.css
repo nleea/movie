@@ -1,3 +1,5 @@
-.movies_container {
-    height: 50vh;
+@media (min-width:500px) {
+    .movies_container {
+        height: 50vh;
+    }
 }
