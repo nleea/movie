@@ -42,9 +42,9 @@ export const DashBoard = () => {
         </Link>
       </div>
       <div className="dashboard-container_config">
-        <div className="dashboard-container_config-link" >
+        <Link class="dashboard-container_config-link" url="/config">
           <i className="bi bi-wrench util-space"></i>  Config
-        </div>
+        </Link>
         <div className="dashboard-container_config-link" onClick={Logout}>
           <i className="bi bi-box-arrow-right util-space"></i>  Logout
         </div>

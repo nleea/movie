@@ -1,0 +1,23 @@
+.container-config {
+    height: 809px;
+}
+
+.config-data {
+    height: 50%;
+    width: 50%;
+    border: 1px solid black;
+    margin: 50px auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.config-option {
+    width: 80%;
+    margin-left: 10px;
+}
+
+.config-dashboard {
+    width: 20%;
+    border-right: 1px solid black;
+}
