@@ -9,47 +9,43 @@ const Security = loadable(() => import('./routes/security/security'));
 const Help = loadable(() => import('./routes/help/Help'));
 
 const Configuration = () => {
-    const { replace, location } = useHistory();
+    const { replace } = useHistory();
     useEffect(() => {
         replace('/config/profile');
-        console.log(location);
+
     }, [replace])
 
     return (
-        <div className="container-config" >
-            <div className="config-data" >
-                <div className="config-dashboard">
-                    <div className="config-dashboard_option1">
-                        <Link url="/config/profile" >
+        <>
+            <h1 className="title-config">Configuration</h1>
+            <div className="container-config" >
+                <div className="config-data" >
+                    <div className="config-dashboard">
+                        <Link url="/config/profile" class="config-dashboard_options">
                             Profile
                         </Link>
-                    </div>
-                    <div className="config-dashboard_option2">
-                        <Link url="/config/security"  >
+                        <Link url="/config/security" class="config-dashboard_options">
                             Seguridad
                         </Link>
-                    </div>
-                    <div className="config-dashboard_option3">
-                        <Link url="/config/help" >
+                        <Link url="/config/help" class="config-dashboard_options">
                             Help
                         </Link>
                     </div>
+                    <div className="config-option">
+                        <Switch>
+                            <Route exact path="/config/profile" >
+                                <Profile />
+                            </Route>
+                            <Route path="/config/security">
+                                <Security />
+                            </Route>
+                            <Route path="/config/help">
+                                <Help />
+                            </Route>
+                        </Switch>
+                    </div>
                 </div>
-                <div className="config-option">
-                    <Switch>
-                        <Route exact path="/config/profile" >
-                            <Profile />
-                        </Route>
-                        <Route path="/config/security">
-                            <Security />
-                        </Route>
-                        <Route path="/config/help">
-                            <Help />
-                        </Route>
-                    </Switch>
-                </div>
-            </div>
-        </div>
+            </div></>
     );
 };
 

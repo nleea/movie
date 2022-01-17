@@ -37,11 +37,11 @@ const Signup = () => {
                 <h1>Signup</h1>
             </div>
             <div className="content-signup_body" >
-                <input type="text" onChange={handlerInput} name="name" />
-                <input type="text" onChange={handlerInput} name="lastname" />
-                <input type="number" onChange={handlerInput} name="age" />
-                <input type="text" onChange={handlerInput} name="email" />
-                <input type="password" onChange={handlerInput} name="password" />
+                <input type="text" onChange={handlerInput} name="name" placeholder="Name" />
+                <input type="text" onChange={handlerInput} name="lastname" placeholder="Last Name" />
+                <input type="number" onChange={handlerInput} name="age" placeholder="Age" />
+                <input type="text" onChange={handlerInput} name="email" placeholder="Email" />
+                <input type="password" onChange={handlerInput} name="password" placeholder="Password" />
                 <button onClick={handlerSubmit} >Send</button>
             </div>
             <div className="content-signup_expands" >

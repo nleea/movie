@@ -1,10 +1,11 @@
 import { createContext, Dispatch } from "react";
-import { Signup } from "../custom-hooks/Auth/auth";
+import { Signup, user as currentUser } from "../custom-hooks/Auth/auth";
 
 interface IinitialStateApp {
   user: {
     email: string;
     token: string;
+    infoUser?: any;
   };
   Isauth: boolean;
 }
@@ -18,6 +19,7 @@ export const initialStateApp: IinitialStateApp = {
   user: {
     token: "",
     email: "",
+    infoUser: "",
   },
   Isauth: false,
 };
@@ -38,8 +40,14 @@ export function reducer(state: IinitialStateApp, action: Iaction) {
           email: action.payload.email,
         })
       );
+      let user = currentUser(action.payload.email);
+      console.log(user);
       return {
-        user: { email: action.payload.email, token: action.payload.token },
+        user: {
+          email: action.payload.email,
+          token: action.payload.token,
+          infoUser: user,
+        },
         Isauth: true,
       };
     case types.LOGOUT:

@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Context } from "../../../provider/context";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../custom-hooks/Auth/auth";
+import { auth, } from "../../../custom-hooks/Auth/auth";
 import { _Link as Link } from "../../UI/Link";
 import "./signin.css";
 
@@ -44,8 +44,8 @@ const Signin = () => {
                 <h1>Signin</h1>
             </div>
             <div className="content-signin_body">
-                <input type="text" onChange={handlerInput} name="email" />
-                <input type="password" onChange={handlerInput} name="password" />
+                <input type="text" onChange={handlerInput} name="email" placeholder="Email" />
+                <input type="password" onChange={handlerInput} name="password" placeholder="Password" />
                 <button onClick={handlerSubmit}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

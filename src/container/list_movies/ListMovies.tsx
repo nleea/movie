@@ -40,7 +40,7 @@ export const ListMovies = () => {
       </div>
       <div className="container-list_movies-content">
         {state.map((m: any) => {
-          return <Card url={m.poster_path} data={m} component={ToolTip} tupe="movies"></Card>;
+          return <Card url={m.poster_path} data={m} component={ToolTip} tupe="movies" key={m.id}></Card>;
         })}
       </div>
       <div className="container-pagination" >

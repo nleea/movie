@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { getDatabase, set, ref } from "firebase/database";
+import { getDatabase, set, ref, get } from "firebase/database";
 import {
   api_key,
   app_auth,
@@ -36,4 +36,18 @@ export const Signup = async (
   const id = uuidv4();
   set(ref(database, "/users/" + id), { name, email, age, lastname });
   await createUserWithEmailAndPassword(auth, email, password);
+};
+
+export const user = (email: string) => {
+  let value: any = [];
+  get(ref(database, "/users/")).then((c) => {
+    Object.values(c.val()).map((k: any) => {
+      if (k.email === email) {
+        value.push(k);
+      }
+      return null;
+    });
+  });
+
+  return value;
 };
