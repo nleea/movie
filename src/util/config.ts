@@ -13,5 +13,5 @@ export {
   app_project,
   app_storage,
   app_messag,
-  app_id,
+  app_id
 };

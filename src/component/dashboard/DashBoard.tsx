@@ -37,9 +37,6 @@ export const DashBoard = () => {
         <Link url="/certifications" class="dashboard-container_links-link">
           <i className="bi bi-patch-check util-space"></i> Certifications
         </Link>
-        <Link url="/change" class="dashboard-container_links-link">
-          <i className="bi bi-key util-space"></i> Change
-        </Link>
       </div>
       <div className="dashboard-container_config">
         <Link class="dashboard-container_config-link" url="/config">

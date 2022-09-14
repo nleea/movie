@@ -7,6 +7,7 @@ import "./listmovies.css";
 
 export const ListMovies = () => {
   const [state, setState] = useState([]);
+  const [type, setType] = useState("top_rated");
 
   useEffect(() => {
     const movies = async () => {
@@ -20,6 +21,9 @@ export const ListMovies = () => {
   }, []);
 
   const getMovies = async (text: string, page: number = 1) => {
+    if (type !== text) {
+      setType(text);
+    }
     let url = `https://api.themoviedb.org/3/movie/${text}?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US&page=${page}`;
     if (text === "latest") {
       url = `https://api.themoviedb.org/3/movie/${text}?api_key=05d20036abfa4d9de53f269637c358dc&language=en-US`;
@@ -44,10 +48,10 @@ export const ListMovies = () => {
         })}
       </div>
       <div className="container-pagination" >
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
+        <button onClick={() => getMovies(type, 1)}>1</button>
+        <button onClick={() => getMovies(type, 2)}>2</button>
+        <button onClick={() => getMovies(type, 3)}>3</button>
+        <button onClick={() => getMovies(type, 4)}>4</button>
       </div>
     </div>
   );
